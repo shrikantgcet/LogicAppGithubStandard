@@ -3,16 +3,16 @@
     "contentVersion": "1.0.0.0",
   "parameters": {
     "logicAppname": {
-      "value": "SingleTenantLABasicshmv1"
+      "value": "SingleTenantLABasicshmv001"
     },
     "appInsightName": {
-      "value": "SingleTenantLABasicshmv1"
+      "value": "SingleTenantLABasicshmv001"
     },
     "use32BitWorkerProcess": {
       "value": true
     },
     "hostingPlanName": {
-      "value": "SingleTenantLABasicshmv1"
+      "value": "SingleTenantLABasicshmv001"
     },
 
     "StorageAccountName": {
