@@ -52,6 +52,7 @@ jobs:
         #cp 'proxies.json' 'output/'
         #cp 'connections.json' 'output/'
         cp -r 'StatusCodeTest' 'output/'
+        cp -r 'TestWorkflow' 'output/'
 
     - name: Easy Zip Files
       uses: vimtor/action-zip@v1
