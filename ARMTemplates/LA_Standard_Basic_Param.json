@@ -16,7 +16,7 @@
     },
 
     "StorageAccountName": {
-      "value": "singletenantlashmv1"
+      "value": "singletenantlashmv001"
     },
 
     "sku": {
