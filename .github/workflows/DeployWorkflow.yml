@@ -51,7 +51,7 @@ jobs:
         cp 'host.json' 'output/'
         #cp 'proxies.json' 'output/'
         #cp 'connections.json' 'output/'
-        cp -r 'Stateful1' 'output/'
+        cp -r 'StatusCodeTest' 'output/'
 
     - name: Easy Zip Files
       uses: vimtor/action-zip@v1
