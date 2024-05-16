@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.gentingcasinos.co.uk/xmlschemas/ApplicationInterfaces/Casino/Loyalty/2014/01/GCDC1.xsd"
+	 targetNamespace="http://www.gentingcasinos.co.uk/xmlschemas/ApplicationInterfaces/Casino/Loyalty/2014/01/GCDC1.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="mtq">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="req"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="req">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="gcdc" type="gcdcReq"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tiq">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="acp"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="acp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="gcdc" type="gcdcRep"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="gcdcReq">
+		<xs:sequence>
+			<xs:element name="cda" type="xs:string"/>
+			<xs:element name="pin" type="xs:string" minOccurs="0"/>
+			<xs:element name="cil" type="xs:string" minOccurs="0"/>
+			<xs:element name="pic" type="xs:string"/>
+			<xs:element name="sig" type="xs:string"/>
+			<xs:element name="valPin" type="xs:string"/>
+			<xs:element name="rel" type="xs:string" minOccurs="0"/>
+			<xs:element name="lev" type="xs:string" minOccurs="0"/>
+			<xs:element name="ecCyc" type="xs:string" minOccurs="0"/>
+			<xs:element name="adSel" type="xs:string" minOccurs="0"/>
+			<xs:element name="cctCai" type="xs:string" minOccurs="0"/>
+			<xs:element name="enaAno" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="gcdcRep">
+		<xs:sequence>
+			<xs:element name="cdb">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="dpiVisBal" type="xs:string"/>
+						<xs:element name="dpiHidBal" type="xs:string"/>
+						<xs:element name="dpiLptBal" type="xs:string"/>
+						<xs:element name="dpiCecBal" type="xs:string"/>
+						<xs:element name="dpiNecBal" type="xs:string"/>
+						<xs:element name="dpiCol" type="xs:string"/>
+						<xs:element name="dpiVisXdd" type="xs:string"/>
+						<xs:element name="dpiHidXdd" type="xs:string"/>
+						<xs:element name="dpiLptXdd" type="xs:string"/>
+						<xs:element name="dpiColXdd" type="xs:string"/>
+						<xs:element name="dpiVisDsp" type="xs:string"/>
+						<xs:element name="dpiLptDsp" type="xs:string"/>
+						<xs:element name="dpiXlaAmt" type="xs:string"/>
+						<xs:element name="dpiVisAvl" type="xs:string"/>
+						<xs:element name="dpiTim" type="xs:string"/>
+						<xs:element name="dpiCid" type="xs:string"/>
+						<xs:element name="dpiLczTim" type="xs:string"/>
+						<xs:element name="dpiCsb" type="xs:string"/>
+						<xs:element name="dpiCcl" type="xs:string"/>
+						<xs:element name="dpiXlaPrd" type="xs:string"/>
+						<xs:element name="dpiRmLim" type="xs:string"/>
+						<xs:element name="dpiCti" type="xs:string"/>
+						<xs:element name="dpiCnm" type="xs:string"/>
+						<xs:element name="dpiGen" type="xs:string"/>
+						<xs:element name="dpiCtc" type="xs:string"/>
+						<xs:element name="dpiCtd" type="xs:string"/>
+						<xs:element name="dpiDob" type="xs:string"/>
+						<xs:element name="dpiDad" type="xs:string"/>
+						<xs:element name="dpiLcmDat" type="xs:string"/>
+						<xs:element name="dpiLptLdt" type="xs:string"/>
+						<xs:element name="dpiCrdExp" type="xs:string"/>
+						<xs:element name="dpiLpd" type="xs:string"/>
+						<xs:element name="dpiLczDat" type="xs:string"/>
+						<xs:element name="dpiCcCyc" type="xs:string"/>
+						<xs:element name="dpiThisFai" type="xs:string"/>
+						<xs:element name="dpiUiFai" type="xs:string"/>
+						<xs:element name="dpiHiFai" type="xs:string"/>
+						<xs:element name="dpiPrefLang" type="xs:string"/>
+						<xs:element name="dpiNasLang" type="xs:string" minOccurs="0"/>
+						<xs:element name="dpiNasCnm" type="xs:string" minOccurs="0"/>
+						<xs:element name="dpiNasCti" type="xs:string" minOccurs="0"/>
+						<xs:element name="dpiShowVisBal" type="xs:string" minOccurs="0"/>
+						<xs:element name="dpiVisBalStr" type="xs:string" minOccurs="0"/>
+						<xs:element name="dpiShowLptBal" type="xs:string" minOccurs="0"/>
+						<xs:element name="dpiLptBalStr" type="xs:string" minOccurs="0"/>
+						<xs:element name="dpiRgn" type="xs:string"/>
+						<xs:element name="dpiShowVisExp" type="xs:string"/>
+						<xs:element name="dpiVisExpDat" type="xs:string"/>
+						<xs:element name="dpiIpn" type="xs:string"/>
+						<xs:element name="dpiIpt" type="xs:string"/>
+						<xs:element name="dpiIpc" type="xs:string"/>
+						<xs:element name="dpiAd1" type="xs:string"/>
+						<xs:element name="dpiAd2" type="xs:string"/>
+						<xs:element name="dpiAd3" type="xs:string"/>
+						<xs:element name="dpiCty" type="xs:string"/>
+						<xs:element name="dpiSte" type="xs:string"/>
+						<xs:element name="dpiCon" type="xs:string"/>
+						<xs:element name="dpiPcd" type="xs:string"/>
+						<xs:element name="dpiTer" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="dpiTerAtd" type="xs:string"/>
+									<xs:element name="dpiTerTel" type="xs:string"/>
+									<xs:element name="dpiTerTe1" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="dpiPfr" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="dpiPfrPfi" type="xs:string"/>
+									<xs:element name="dpiPfrPfv" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="nationality" type="xs:string" minOccurs="0"/>
+						<xs:element name="dpiId" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="dpiIdTypeCode" type="xs:string"/>
+									<xs:element name="dpiIdIssAuth" type="xs:string"/>
+									<xs:element name="dpiIdDocNo" type="xs:string"/>
+									<xs:element name="dpiIssDate" type="xs:string" minOccurs="0"/>
+									<xs:element name="dpiIdIssDateFmt" type="xs:string"/>
+									<xs:element name="dpiExpDate" type="xs:string" minOccurs="0"/>
+									<xs:element name="dpiIdExpDateFmt" type="xs:string"/>
+									<xs:element name="dpiIdPriIdFlag" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="dpiAno" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="dpiAnoCode" type="xs:string"/>
+									<xs:element name="dpiAnoText" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="sig" type="xs:string" minOccurs="0"/>
+			<xs:element name="pic" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
