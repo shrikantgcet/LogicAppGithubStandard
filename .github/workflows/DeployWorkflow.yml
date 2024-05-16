@@ -53,6 +53,7 @@ jobs:
         #cp 'connections.json' 'output/'
         cp -r 'StatusCodeTest' 'output/'
         cp -r 'TestWorkflow' 'output/'
+        cp -r 'DRSMockService' 'output/'
         cp -r 'Artifacts' 'output/'
 
     - name: Easy Zip Files
