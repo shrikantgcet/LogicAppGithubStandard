@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.gentingcasinos.co.uk/xmlschemas/ApplicationInterfaces/Casino/Loyalty/2014/01/Common1.xsd"
+	 targetNamespace="http://www.gentingcasinos.co.uk/xmlschemas/ApplicationInterfaces/Casino/Loyalty/2014/01/Common1.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="mtq">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="req"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="req">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:any namespace="##any" processContents="lax"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tiq">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="acp"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="acp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:any namespace="##any" processContents="lax"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="booleanDRS">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="genderDRS">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="F"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="identificationDRS">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="I"/>
+			<xs:enumeration value="P"/>
+			<xs:enumeration value="O"/>
+			<xs:enumeration value=""/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="emptyType"/>
+	<xs:simpleType name="balanceType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="approvalType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="profitCentreIdType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ALAT"/>
+			<xs:enumeration value="BAR"/>
+			<xs:enumeration value="BEV"/>
+			<xs:enumeration value="CARD"/>
+			<xs:enumeration value="ECEX"/>
+			<xs:enumeration value="ER"/>
+			<xs:enumeration value="FOOD"/>
+			<xs:enumeration value="HOSP"/>
+			<xs:enumeration value="IKSK"/>
+			<xs:enumeration value="LIVE"/>
+			<xs:enumeration value="MACH"/>
+			<xs:enumeration value="MAIN"/>
+			<xs:enumeration value="MKTG"/>
+			<xs:enumeration value="MWR"/>
+			<xs:enumeration value="NRS"/>
+			<xs:enumeration value="PALN"/>
+			<xs:enumeration value="PLFX"/>
+			<xs:enumeration value="POKR"/>
+			<xs:enumeration value="REST"/>
+			<xs:enumeration value="SLOT"/>
+			<xs:enumeration value="TB"/>
+			<xs:enumeration value="TOBA"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="slotDirectiveCodeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DON"/>
+			<xs:enumeration value="DOF"/>
+			<xs:enumeration value="CFG"/>
+			<xs:enumeration value="RES"/>
+			<xs:enumeration value="LCK"/>
+			<xs:enumeration value="ULK"/>
+			<xs:enumeration value="DLD"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="slotUpdateSelectionType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="L"/>
+			<xs:enumeration value="P"/>
+			<xs:enumeration value="A"/>
+			<xs:enumeration value=""/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="balanceCeaType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="slotPitStateType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="sltDayIncModType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="rndStyType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="UP"/>
+			<xs:enumeration value="EV"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ticketType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CT"/>
+			<xs:enumeration value="NT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="telephoneAddressEmailStatusType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="OK"/>
+			<xs:enumeration value="BL"/>
+			<xs:enumeration value="XX"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="idDocDateFormatType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FULL"/>
+			<xs:enumeration value="MMYY"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="creditTagType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="pgiCdaType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="machineInstallType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ONL"/>
+			<xs:enumeration value="OFF"/>
+			<xs:enumeration value="VLT"/>
+			<xs:enumeration value="VLI"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="slotTransactionType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CC"/>
+			<xs:enumeration value="JP"/>
+			<xs:enumeration value="PJ"/>
+			<xs:enumeration value="SP"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="meterConfigurationType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="UM"/>
+			<xs:enumeration value="TO"/>
+			<xs:enumeration value="TB"/>
+			<xs:enumeration value="FO"/>
+			<xs:enumeration value="FB"/>
+			<xs:enumeration value="EB"/>
+			<xs:enumeration value="TT"/>
+			<xs:enumeration value="ET"/>
+			<xs:enumeration value="EM"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="cardEncodingReasonType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="IS"/>
+			<xs:enumeration value="FO"/>
+			<xs:enumeration value="RE"/>
+			<xs:enumeration value="RP"/>
+			<xs:enumeration value="RN"/>
+			<xs:enumeration value="UG"/>
+			<xs:enumeration value="DG"/>
+			<xs:enumeration value="RR"/>
+			<xs:enumeration value="RA"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="recoveredStatusType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NA"/>
+			<xs:enumeration value="RE"/>
+			<xs:enumeration value="NS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="playerAddressType">
+		<xs:sequence>
+			<xs:element name="ad1" type="xs:string" minOccurs="0"/>
+			<xs:element name="ad2" type="xs:string" minOccurs="0"/>
+			<xs:element name="ad3" type="xs:string" minOccurs="0"/>
+			<xs:element name="cty" type="xs:string" minOccurs="0"/>
+			<xs:element name="ste" type="xs:string" minOccurs="0"/>
+			<xs:element name="con" type="xs:string" minOccurs="0"/>
+			<xs:element name="pcd" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="approvalParametersType">
+		<xs:sequence>
+			<xs:element name="type" type="approvalType" minOccurs="0"/>
+			<xs:element name="uid" type="xs:string" minOccurs="0"/>
+			<xs:element name="upw" type="xs:string" minOccurs="0"/>
+			<xs:element name="cda" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="commodityBreakdownType">
+		<xs:sequence>
+			<xs:choice minOccurs="0">
+				<xs:element name="coded" type="codedBreakdownType"/>
+				<xs:element name="numbered" type="numberedBreakdownType"/>
+			</xs:choice>
+			<xs:element name="chqRca" type="xs:string" minOccurs="0"/>
+			<xs:element name="cecRca" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="codedBreakdownType">
+		<xs:sequence>
+			<xs:element name="cyr" type="codedCurrencyListType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="cst" type="chipSetListType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="coq" type="comodityQuantityType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="numberedBreakdownType">
+		<xs:sequence>
+			<xs:element name="cyr" type="numberedCurrencyListType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="cst" type="chipSetListType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="coq" type="comodityQuantityType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="comodityQuantityType">
+		<xs:sequence>
+			<xs:element name="coc" type="xs:string"/>
+			<xs:element name="amt" type="xs:string"/>
+			<xs:element name="rte" type="xs:string"/>
+			<xs:element name="dec" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="codedCurrencyListType">
+		<xs:sequence>
+			<xs:element name="cyc" type="xs:string"/>
+			<xs:element name="lcq" type="cashDenomQuantityType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="cns" type="xs:string" minOccurs="0"/>
+			<xs:element name="rndAdj" type="xs:string" minOccurs="0"/>
+			<xs:element name="tkt" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="numberedCurrencyListType">
+		<xs:sequence>
+			<xs:element name="cyo" type="xs:string"/>
+			<xs:element name="lcq" type="cashDenomQuantityType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="cns" type="xs:string" minOccurs="0"/>
+			<xs:element name="rndAdj" type="xs:string" minOccurs="0"/>
+			<xs:element name="tkt" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="cashDenomQuantityType">
+		<xs:sequence>
+			<xs:element name="lcd" type="xs:string"/>
+			<xs:element name="qty" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chipSetListType">
+		<xs:sequence>
+			<xs:element name="csc" type="xs:string"/>
+			<xs:element name="cvq" type="chipDenomQuantityType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chipDenomQuantityType">
+		<xs:sequence>
+			<xs:element name="cvd" type="xs:string"/>
+			<xs:element name="qty" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="slotInstallIdType">
+		<xs:sequence>
+			<xs:element name="sin" type="xs:string"/>
+			<xs:element name="sln" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="pitInstallIdType">
+		<xs:sequence>
+			<xs:element name="pno" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="meterReadingsType">
+		<xs:sequence>
+			<xs:element name="mmi" type="xs:string"/>
+			<xs:element name="mvc" type="xs:string"/>
+			<xs:element name="mrd" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="reportType">
+		<xs:sequence>
+			<xs:element name="report" type="xs:base64Binary"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="dateRangeType">
+		<xs:sequence>
+			<xs:element name="From" type="xs:date"/>
+			<xs:element name="To" type="xs:date"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="spoolFileReferenceType">
+		<xs:sequence>
+			<xs:element name="ipa" type="xs:string"/>
+			<xs:element name="port" type="xs:string"/>
+			<xs:element name="spf" type="xs:string"/>
+			<xs:element name="epf" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="meterReadingsInfoType">
+		<xs:sequence>
+			<xs:element name="sln" type="xs:string"/>
+			<xs:element name="sin" type="xs:string"/>
+			<xs:element name="txn" type="xs:string"/>
+			<xs:element name="cyc" type="xs:string"/>
+			<xs:element name="opTim" type="xs:string"/>
+			<xs:element name="clTim" type="xs:string"/>
+			<xs:element name="mrr" type="meterReadingsListType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="rmkIno" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="meterReadingsListType">
+		<xs:sequence>
+			<xs:element name="mmi" type="xs:string"/>
+			<xs:element name="mvc" type="xs:string"/>
+			<xs:element name="omr" type="xs:string"/>
+			<xs:element name="mrd" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="cmr" type="xs:string"/>
+						<xs:element name="mvl" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="isldStsType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ACP"/>
+			<xs:enumeration value="MNC"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="tktNoEnqReqType">
+		<xs:sequence>
+			<xs:element name="tktNo" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tktNoEnqResType">
+		<xs:sequence>
+			<xs:element name="amt" type="xs:string"/>
+			<xs:element name="cyc" type="xs:string"/>
+			<xs:element name="dec" type="xs:string"/>
+			<xs:element name="issTim" type="xs:string"/>
+			<xs:element name="issSln" type="xs:string"/>
+			<xs:element name="issCln" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="exceptionListType">
+		<xs:sequence>
+			<xs:element name="locType" type="xs:string"/>
+			<xs:element name="locCode" type="xs:string"/>
+			<xs:element name="err" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="umrqSessionType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="new"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="dydType">
+		<xs:choice>
+			<xs:element name="dd" type="ddType"/>
+			<xs:element name="msd" type="msdType" maxOccurs="unbounded"/>
+			<xs:element name="csd" type="xs:anyType" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ddType">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="clr" type="emptyType"/>
+			<xs:element name="alm">
+				<xs:complexType>
+					<xs:attribute name="beep" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="buf">
+				<xs:complexType mixed="true">
+					<xs:attribute name="column" type="xs:string"/>
+					<xs:attribute name="line" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="iv">
+				<xs:complexType>
+					<xs:attribute name="fromCol" type="xs:string"/>
+					<xs:attribute name="line" type="xs:string"/>
+					<xs:attribute name="toCol" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="sdn" type="scrollType"/>
+			<xs:element name="sup" type="scrollType"/>
+			<xs:element name="cln">
+				<xs:complexType>
+					<xs:attribute name="fromLine" type="xs:string"/>
+					<xs:attribute name="toLine" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="scrollType">
+		<xs:attribute name="fromLine" type="xs:string"/>
+		<xs:attribute name="toLine" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="msdType">
+		<xs:sequence>
+			<xs:element name="reset">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="mach">
+							<xs:complexType>
+								<xs:attribute name="Bcr" type="booleanDRS"/>
+								<xs:attribute name="blTdd" type="xs:string"/>
+								<xs:attribute name="bvo" type="booleanDRS"/>
+								<xs:attribute name="cbo" type="booleanDRS"/>
+								<xs:attribute name="ccr" type="booleanDRS"/>
+								<xs:attribute name="cmrTim" type="xs:string"/>
+								<xs:attribute name="coTdd" type="xs:string"/>
+								<xs:attribute name="cru" type="xs:string"/>
+								<xs:attribute name="cyc" type="xs:string"/>
+								<xs:attribute name="dec" type="xs:string"/>
+								<xs:attribute name="drMvl" type="xs:string"/>
+								<xs:attribute name="mdo" type="booleanDRS"/>
+								<xs:attribute name="mfn" type="xs:string"/>
+								<xs:attribute name="mid" type="xs:string"/>
+								<xs:attribute name="mis" type="xs:string"/>
+								<xs:attribute name="mnc" type="xs:string"/>
+								<xs:attribute name="mnm" type="xs:string"/>
+								<xs:attribute name="smd" type="xs:string"/>
+								<xs:attribute name="sptd" type="xs:string"/>
+								<xs:attribute name="toMvl" type="xs:string"/>
+								<xs:attribute name="win" type="xs:string"/>
+								<xs:attribute name="crBal" type="xs:string"/>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="cust" minOccurs="0">
+							<xs:complexType>
+								<xs:attribute name="cid" type="xs:string"/>
+								<xs:attribute name="cnm" type="xs:string"/>
+								<xs:attribute name="ctc" type="xs:string"/>
+								<xs:attribute name="ctd" type="xs:string"/>
+								<xs:attribute name="cti" type="xs:string"/>
+								<xs:attribute name="picCun" type="xs:string"/>
+								<xs:attribute name="tin" type="xs:string"/>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="arc" type="xs:string"/>
+					<xs:attribute name="arn" type="xs:string"/>
+					<xs:attribute name="cln" type="xs:string"/>
+					<xs:attribute name="nln" type="xs:string"/>
+					<xs:attribute name="pno" type="xs:string"/>
+					<xs:attribute name="sln" type="xs:string"/>
+					<xs:attribute name="sltDayIncMod" type="sltDayIncModType"/>
+					<xs:attribute name="sps" type="slotPitStateType"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tevType">
+		<xs:sequence>
+			<xs:element name="tevTe" type="tevTeType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tevTeType">
+		<xs:sequence>
+			<xs:element name="atd" type="xs:string"/>
+			<xs:element name="tel" type="xs:string"/>
+			<xs:element name="te1" type="booleanDRS"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="adType">
+		<xs:sequence>
+			<xs:element name="adAtd" type="xs:string"/>
+			<xs:element name="adLangCode" type="xs:string"/>
+			<xs:element name="pad" type="playerAddressType"/>
+			<xs:element name="ad1" type="booleanDRS"/>
+			<xs:element name="intlMail" type="booleanDRS"/>
+			<xs:element name="domMail" type="booleanDRS"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ciqSortKeys">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CID"/>
+			<xs:enumeration value="CNM"/>
+			<xs:enumeration value="SNM"/>
+			<xs:enumeration value="IEN"/>
+			<xs:enumeration value="IAC"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="userPowers">
+		<xs:sequence>
+			<xs:element name="pwr">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="cmd" type="xs:string" minOccurs="0"/>
+						<xs:element name="epf" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="customerCollection">
+		<xs:sequence>
+			<xs:element name="cust" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="cid" type="xs:string" minOccurs="0"/>
+						<xs:element name="cnm" type="xs:string" minOccurs="0"/>
+						<xs:element name="gen" type="xs:string" minOccurs="0"/>
+						<xs:element name="ctc" type="xs:string" minOccurs="0"/>
+						<xs:element name="dob" type="xs:string" minOccurs="0"/>
+						<xs:element name="idDocNo" type="xs:string" minOccurs="0"/>
+						<xs:element name="flags" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

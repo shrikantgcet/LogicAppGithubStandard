@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/DefaultServiceBusFault1.xsd"
+	 xmlns:sbt="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusTypes1.xsd"
+	 xmlns:sbf="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusFault1.xsd"
+	 xmlns:sctx="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceContext1.xsd"
+	 xmlns:sbe="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusException1.xsd"
+	 xmlns:pctx="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ProcessContext1.xsd"
+	 xmlns:sbm="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusMessage1.xsd"
+	 xmlns:ns0="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/04/ServiceContext1.xsd"
+	 xmlns:ns1="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/04/ServiceBusException1.xsd"
+	 xmlns:ns2="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/04/ProcessContext1.xsd"
+	 xmlns:sysctx="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/SystemContext1.xsd"
+	 targetNamespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusFault1.xsd"
+	 version="1-1"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusTypes1.xsd" schemaLocation="ServiceBusTypes1.xsd"/>
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceContext1.xsd" schemaLocation="ServiceContext1.xsd"/>
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusException1.xsd" schemaLocation="ServiceBusExceptions1.xsd"/>
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ProcessContext1.xsd" schemaLocation="ProcessContext1.xsd"/>
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusMessage1.xsd" schemaLocation="ServiceBusMessage1.xsd"/>
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/SystemContext1.xsd" schemaLocation="SystemContext1.xsd"/>
+	<xs:element name="serviceOperation" type="sbt:tServiceOperation"/>
+	<xs:element name="serviceBusFault">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sbf:faultString" minOccurs="0"/>
+				<xs:element ref="sbf:faultCode" minOccurs="0"/>
+				<xs:element ref="sctx:serviceContext"/>
+				<xs:element ref="sysctx:systemContext"/>
+				<xs:element ref="sbf:exceptionGroup"/>
+				<xs:element ref="sbm:serviceBusMessage" minOccurs="0"/>
+				<xs:element ref="pctx:processContext" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="faultVersion" type="sbt:tVersionNumber" default="1-0"/>
+			<xs:attribute name="faultID" type="sbt:tGUID" use="required"/>
+			<xs:attribute name="linkedFaultID" type="sbt:tGUID"/>
+			<xs:attribute name="timestamp" type="sbt:tTimestamp"/>
+			<xs:attribute name="robust" type="xs:boolean" default="false"/>
+			<xs:attribute name="audit" type="xs:boolean" default="false"/>
+			<xs:attribute name="logged" type="xs:boolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="exceptionName" type="xs:string"/>
+	<xs:element name="exceptionString" type="xs:string"/>
+	<xs:element name="exceptionGroup">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="sbe:tExceptionGroup"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="faultString" type="xs:string"/>
+	<xs:element name="faultCode" type="xs:string"/>
+</xs:schema>

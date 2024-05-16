@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns:sbt="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusTypes1.xsd"
+	 xmlns:sctx="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceContext1.xsd"
+	 xmlns:seh="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusEvent1.xsd"
+	 xmlns:sysctx="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/SystemContext1.xsd"
+	 targetNamespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusEvent1.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusTypes1.xsd" schemaLocation="ServiceBusTypes1.xsd"/>
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceContext1.xsd" schemaLocation="ServiceContext1.xsd"/>
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/SystemContext1.xsd" schemaLocation="SystemContext1.xsd"/>
+	<xs:element name="serviceEventHeader">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sctx:serviceContext" minOccurs="0"/>
+				<xs:element ref="sysctx:systemContext" minOccurs="0"/>
+				<xs:element ref="seh:transaction" minOccurs="0"/>
+				<xs:element ref="seh:properties" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="eventApplicationName" type="xs:string"/>
+			<xs:attribute name="eventServer" type="xs:string"/>
+			<xs:attribute name="eventProcessId" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="transaction">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sbt:ParameterList"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="properties">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sbt:ParameterList"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+</xs:schema>

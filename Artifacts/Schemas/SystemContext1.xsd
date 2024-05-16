@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns:sysctx="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/SystemContext1.xsd"
+	 targetNamespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/SystemContext1.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="systemContext">
+		<xs:complexType>
+			<xs:attribute name="systemType">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="APPLICATION"/>
+
+						<!-- added in 2.2.1 -->
+						<xs:enumeration value="ADAPTER"/>
+						<xs:enumeration value="SERVICES"/>
+
+						<xs:enumeration value="INFRASTRUCTURE"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="systemID" type="xs:string"/>
+			<xs:attribute name="hostname" type="xs:string"/>
+			<xs:attribute name="commonName" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

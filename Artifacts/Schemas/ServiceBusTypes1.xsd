@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusTypes1.xsd"
+	 xmlns:sbt="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusTypes1.xsd"
+	 targetNamespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusTypes1.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:simpleType name="tServiceArea">
+		<xs:annotation>
+			<xs:documentation>Service Area maps to the Business Domain that the service belongs to.
+</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="tServiceGroup">
+		<xs:annotation>
+			<xs:documentation>Service Group provides a further classification value.
+</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="tBusinessEntityName">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="tServiceName">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="tServiceOperation">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="tVersionNumber">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="tTimestamp">
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:complexType name="tParameters">
+		<xs:sequence>
+			<xs:element name="Parameter" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="name" type="xs:string"/>
+						<xs:element name="value" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ParameterList" type="sbt:tParameters"/>
+	<xs:simpleType name="tMessageType">
+		<xs:annotation>
+			<xs:documentation>Message Type maps to the message exchange pattern implemented by the Service Operation:
+
+'request' enumerates to request part of a request-response message exchange pattern
+'reply' enumerates to the response part of a request-response message exchange pattern
+'solicit' enumerates to the solicit part of a solicit-response message exchange pattern
+'notification' enumerates to a notification message exchange pattern
+'event' enumerates to a </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="REQUEST"/>
+			<xs:enumeration value="REPLY"/>
+			<xs:enumeration value="NOTIFICATION"/>
+			<xs:enumeration value="EVENT"/>
+			<xs:enumeration value="SOLICIT"/>
+			<xs:enumeration value="FAULT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tGUID">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tDN">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="tCN">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="tCorrelationID">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns:sos="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceOperationStatus1.xsd"
+	 xmlns:bpmf="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/iPEFault1.xsd"
+	 xmlns:sbf="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusFault1.xsd"
+	 targetNamespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceOperationStatus1.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="serviceOperationStatus">
+		<xs:annotation>
+			<xs:documentation>The Service Operation Status is used to return status information to service consumers when an invocation is successfull but there is an opportunity that business level warning information needs to be returned.
+
+</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sos:code"/>
+				<xs:choice minOccurs="0">
+					<xs:element ref="sos:warnings"/>
+					<xs:element ref="sos:information"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="code">
+		<xs:annotation>
+			<xs:documentation>The code is an enumerated string that may contain only the following values:
+
+SUCCESS_WITH_WARNINGS
+SUCCESS_NO_WARNINGS
+
+SUCCESS_WITH_WARNINGS should be used to signal that the operation completed successfully but caused warnings to be generated. If this enumeration is used then a 'warnings' element must exist.
+SUCCESS_NO_WARNINGS should be used to signal that the operation completed successfully without any warnings. If this enumeration is used then an 'information' element must exist.
+
+The 'warnings' element should be used to provide human-readable description of the warnings generated. e.g. Validation warnings 'Entity xxx contains invalid code yyy, using zzz instead.'
+The 'information' element should be used to provide human-readable description of any information generated .e.g. Success message 'Successfully updated xxx'. 
+
+Failures should always cause a ServiceBusFault to be generated.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="SUCCESS_WITH_WARNINGS"/>
+				<xs:enumeration value="SUCCESS_NO_WARNINGS"/>
+				<xs:enumeration value="ERROR"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="warnings">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sos:warning" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="warning">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sos:warningCode"/>
+				<xs:element ref="sos:warningDescription" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="warningCode" type="xs:string"/>
+	<xs:element name="warningDescription" type="xs:string"/>
+	<xs:element name="information" type="xs:string"/>
+</xs:schema>

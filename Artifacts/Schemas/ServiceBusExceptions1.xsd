@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns:sbe="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusException1.xsd"
+	 xmlns:ns0="http://www.tibco.com/Simples"
+	 targetNamespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusException1.xsd"
+	 version="1-0"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.tibco.com/Simples" schemaLocation="Simples.xsd"/>
+	<xs:element name="businessException">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="sbe:tBaseException"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="reasonCode" type="xs:string"/>
+	<xs:element name="reasonDescription" type="xs:string"/>
+	<xs:element name="meta">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:any namespace="##any" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="stackTrace" type="xs:string"/>
+	<xs:element name="class" type="xs:string"/>
+	<xs:element name="fullClass" type="xs:string"/>
+	<xs:element name="technicalException">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="sbe:tBaseException">
+					<xs:attribute name="recoverable" type="xs:boolean"/>
+					<xs:attribute name="retry" type="xs:boolean"/>
+					<xs:attribute name="retryDelayMS" type="xs:nonNegativeInteger"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="tBaseException">
+		<xs:sequence>
+			<xs:element ref="sbe:reasonCode" minOccurs="0"/>
+			<xs:element ref="sbe:reasonDescription" minOccurs="0"/>
+			<xs:element ref="sbe:severity" minOccurs="0"/>
+			<xs:element ref="sbe:meta" minOccurs="0"/>
+			<xs:element ref="sbe:exceptionState" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tExceptionGroup">
+		<xs:choice>
+			<xs:element ref="sbe:businessException"/>
+			<xs:element ref="sbe:technicalException"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="exceptionState">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:any namespace="##any" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:anyAttribute namespace="##any" processContents="skip"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="severity" default="INFORMATIONAL">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="INFORMATIONAL"/>
+				<xs:enumeration value="WARNING"/>
+				<xs:enumeration value="ERROR"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

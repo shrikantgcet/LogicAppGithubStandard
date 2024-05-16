@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:sreq="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceRequestHeader1.xsd"
+	 xmlns:cred="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/SystemCredentials1.xsd"
+	 xmlns:sctx="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceContext1.xsd"
+	 xmlns:sbt="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusTypes1.xsd"
+	 xmlns:sysctx="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/SystemContext1.xsd"
+	 targetNamespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceRequestHeader1.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/SystemCredentials1.xsd" schemaLocation="SystemCredentials1.xsd"/>
+	<xsd:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceContext1.xsd" schemaLocation="ServiceContext1.xsd"/>
+	<xsd:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusTypes1.xsd" schemaLocation="ServiceBusTypes1.xsd"/>
+	<xsd:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/SystemContext1.xsd" schemaLocation="SystemContext1.xsd"/>
+	<xsd:element name="serviceRequestHeader">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="sreq:requestingSystem" minOccurs="0"/>
+				<xsd:element ref="cred:systemCredentials" minOccurs="0"/>
+				<xsd:element ref="sreq:transaction" minOccurs="0"/>
+				<xsd:element ref="sreq:properties" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="properties">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="sbt:ParameterList"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="messageName" type="xsd:string"/>
+	<xsd:element name="messageVersion" type="xsd:string"/>
+	<xsd:element name="messageIdentifier">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="sreq:messageName"/>
+				<xsd:element ref="sreq:messageVersion"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="requestingSystem">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="sctx:serviceContext" minOccurs="0"/>
+				<xsd:element ref="sysctx:systemContext" minOccurs="0"/>
+				<xsd:element ref="sreq:callbackAddress" minOccurs="0"/>
+				<xsd:element ref="sreq:forwardingAddress" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="requestingApplicationName" type="xsd:string"/>
+			<xsd:attribute name="requestingServer" type="xsd:string"/>
+			<xsd:attribute name="requestingProcessId" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="transaction">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="sbt:ParameterList"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="callbackAddress" type="xsd:string"/>
+	<xsd:element name="forwardingAddress" type="xsd:string"/>
+</xsd:schema>

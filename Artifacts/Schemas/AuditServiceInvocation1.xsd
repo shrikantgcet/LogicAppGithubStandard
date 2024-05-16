@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns:asi="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/AuditServiceInvocation1.xsd"
+	 xmlns:sctx="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceContext1.xsd"
+	 xmlns:sbm="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusMessage1.xsd"
+	 xmlns:sysctx="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/SystemContext1.xsd"
+	 targetNamespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/AuditServiceInvocation1.xsd"
+	 version="1-0"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceContext1.xsd" schemaLocation="ServiceContext1.xsd"/>
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusMessage1.xsd" schemaLocation="ServiceBusMessage1.xsd"/>
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/SystemContext1.xsd" schemaLocation="SystemContext1.xsd"/>
+	<xs:element name="auditServiceInvocation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="asi:auditTimestamp"/>
+				<xs:element ref="sctx:serviceContext"/>
+				<xs:element ref="sysctx:systemContext"/>
+				<xs:element ref="sbm:serviceBusMessage" minOccurs="0"/>
+				<xs:element ref="asi:message" minOccurs="0"/>
+				<xs:element ref="asi:body" minOccurs="0"/>
+				<xs:element ref="asi:category" minOccurs="0"/>
+				<xs:element ref="asi:status" minOccurs="0"/>
+				<xs:element ref="asi:type" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="auditTimestamp" type="xs:dateTime"/>
+	<xs:element name="body">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:any namespace="##any" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:anyAttribute namespace="##any" processContents="skip"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="message" type="xs:string"/>
+	<xs:element name="category" type="xs:string"/>
+	<xs:element name="status" type="xs:string"/>
+	<xs:element name="type" type="xs:string"/>
+</xs:schema>

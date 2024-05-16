@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns:sbm="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusMessage1.xsd"
+	 xmlns:sreq="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceRequestHeader1.xsd"
+	 xmlns:srsp="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceResponseHeader1.xsd"
+	 xmlns:sbt="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusTypes1.xsd"
+	 xmlns:seh="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusEvent1.xsd"
+	 targetNamespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusMessage1.xsd"
+	 version="1-0"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceRequestHeader1.xsd" schemaLocation="ServiceRequestHeader1.xsd"/>
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceResponseHeader1.xsd" schemaLocation="ServiceResponseHeader1.xsd"/>
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusTypes1.xsd" schemaLocation="ServiceBusTypes1.xsd"/>
+	<xs:import namespace="http://www.tibco.com/xmlschemas/Canonicals/ESB/2009/07/ServiceBusEvent1.xsd" schemaLocation="ServiceEventHeader1.xsd"/>
+	<xs:element name="serviceBusMessage">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sbm:header" minOccurs="0"/>
+				<xs:element ref="sbm:metadata" minOccurs="0"/>
+				<xs:element ref="sbm:payload" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="messageVersion" type="sbt:tVersionNumber" default="1-0"/>
+			<xs:attribute ref="sbm:messageType" use="required"/>
+			<xs:attribute ref="sbm:messageID" use="required"/>
+			<xs:attribute name="correlationID" type="sbt:tCorrelationID"/>
+			<xs:attribute name="messageGroupRef" type="xs:string"/>
+			<xs:attribute name="messageGroupSeq" type="xs:string"/>
+			<xs:attribute name="businessEventName" type="xs:string"/>
+			<xs:attribute name="eventEpoch" type="xs:dateTime"/>
+			<xs:attribute name="routeInfo" type="xs:string"/>
+			<xs:attribute name="businessTransactionID" type="xs:string"/>
+			<xs:attribute ref="sbm:timestamp" use="required"/>
+			<xs:attribute name="action" type="xs:string"/>
+			<xs:attribute name="robust" type="xs:boolean" default="false"/>
+			<xs:attribute name="ttl" type="xs:integer"/>
+			<xs:attribute name="audit" type="xs:boolean" default="false"/>
+			<xs:anyAttribute namespace="##other" processContents="lax"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="meta">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string"/>
+			<xs:attribute name="value" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="payload">
+		<xs:complexType>
+			<xs:choice>
+				<xs:any namespace="##other" processContents="lax" minOccurs="0"/>
+				<xs:element ref="sbm:xmlString"/>
+			</xs:choice>
+			<xs:attribute name="payloadName" type="xs:string"/>
+			<xs:attribute name="payloadType" type="xs:string"/>
+			<xs:attribute name="payloadNamespace" type="xs:string"/>
+			<xs:attribute name="payloadVersion" type="xs:string"/>
+			<xs:anyAttribute namespace="##any" processContents="lax"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="header" type="sbm:tHeader"/>
+	<xs:complexType name="tHeader">
+		<xs:choice>
+			<xs:element ref="sreq:serviceRequestHeader"/>
+			<xs:element ref="srsp:serviceResponseHeader"/>
+			<xs:element ref="seh:serviceEventHeader"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:attribute name="messageType" type="sbt:tMessageType"/>
+	<xs:attribute name="messageID" type="sbt:tGUID"/>
+	<xs:attribute name="timestamp" type="sbt:tTimestamp"/>
+	<xs:element name="metadata">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sbm:meta" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:attribute name="correlationID" type="sbt:tCorrelationID"/>
+	<xs:element name="xmlString" type="xs:string"/>
+</xs:schema>
