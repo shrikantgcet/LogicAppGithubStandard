@@ -1,0 +1,31 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "DRS_Mock_Response": {
+                "inputs": {
+                    "body": "<tiq>\n    <acp>\n        <gcdc>\n            <cdb>\n                <dpiVisBal>0</dpiVisBal>\n                <dpiHidBal>0</dpiHidBal>\n                <dpiLptBal>0</dpiLptBal>\n                <dpiCecBal>0</dpiCecBal>\n                <dpiNecBal>0</dpiNecBal>\n                <dpiCol>0</dpiCol>\n                <dpiVisXdd>0</dpiVisXdd>\n                <dpiHidXdd>0</dpiHidXdd>\n                <dpiLptXdd>0</dpiLptXdd>\n                <dpiColXdd>0</dpiColXdd>\n                <dpiVisDsp>0</dpiVisDsp>\n                <dpiLptDsp>0</dpiLptDsp>\n                <dpiXlaAmt>0</dpiXlaAmt>\n                <dpiVisAvl>0</dpiVisAvl>\n                <dpiTim>2024-05-01T16:11:46</dpiTim>\n                <dpiCid>998012033</dpiCid>\n                <dpiLczTim>1970-01-01T00:00:00</dpiLczTim>\n                <dpiCsb>0</dpiCsb>\n                <dpiCcl>2</dpiCcl>\n                <dpiXlaPrd>30</dpiXlaPrd>\n                <dpiRmLim>0</dpiRmLim>\n                <dpiCti>Mr</dpiCti>\n                <dpiCnm>Testcustomer [December]</dpiCnm>\n                <dpiGen>M</dpiGen>\n                <dpiCtc>BRNZ</dpiCtc>\n                <dpiCtd>MyGenting Bronze</dpiCtd>\n                <dpiDob>19801222</dpiDob>\n                <dpiDad>20221222</dpiDad>\n                <dpiLcmDat>20230112</dpiLcmDat>\n                <dpiLptLdt>00000000</dpiLptLdt>\n                <dpiCrdExp>00000000</dpiCrdExp>\n                <dpiLpd>00000000</dpiLpd>\n                <dpiLczDat></dpiLczDat>\n                <dpiCcCyc>GB</dpiCcCyc>\n                <dpiThisFai>SIT1</dpiThisFai>\n                <dpiUiFai>SIT1</dpiUiFai>\n                <dpiHiFai>SIT1</dpiHiFai>\n                <dpiPrefLang>EN</dpiPrefLang>\n                <dpiRgn>9999</dpiRgn>\n                <dpiShowVisExp>0</dpiShowVisExp>\n                <dpiVisExpDat>1970-01-01T00:00:00</dpiVisExpDat>\n                <dpiIpn></dpiIpn>\n                <dpiIpt></dpiIpt>\n                <dpiIpc></dpiIpc>\n                <dpiAd1></dpiAd1>\n                <dpiAd2></dpiAd2>\n                <dpiAd3></dpiAd3>\n                <dpiCty></dpiCty>\n                <dpiSte></dpiSte>\n                <dpiCon></dpiCon>\n                <dpiPcd></dpiPcd>\n            </cdb>\n        </gcdc>\n    </acp>\n</tiq>",
+                    "headers": {
+                        "Content-Type": "application/xml"
+                    },
+                    "statusCode": 200
+                },
+                "kind": "Http",
+                "runAfter": {},
+                "type": "Response"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "triggers": {
+            "When_a_Loyalty-Enquiry-Service_request_is_received": {
+                "inputs": {
+                    "method": "POST"
+                },
+                "kind": "Http",
+                "type": "Request"
+            }
+        }
+    },
+    "kind": "Stateless"
+}
